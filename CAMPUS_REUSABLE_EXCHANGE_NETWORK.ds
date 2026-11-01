@@ -1,0 +1,5574 @@
+/*
+ * Author       : gowthamdevendran1406
+ * Generated on : 31-Oct-2026 13:02:43
+ * Version      : 1.0
+ */
+ application "CAMPUS REUSABLE EXCHANGE NETWORK"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Asia/Kolkata"
+ 	time format = "24-hr"
+
+ 	forms
+	{
+		form Campus_Users
+		{
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			User_ID
+			(
+    			type = autonumber
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Full_Name
+			(
+    			type = name
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			User_Name
+			(
+    			type = picklist
+				displayname = "User Name"
+				module = users
+				displayformat = [username]
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			must have College_Email
+			(
+    			type = email
+				maxchar = 80
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Phone_Number1
+			(
+    			type = phonenumber
+				displayname = "Phone_Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Gender
+			(
+				type = radiobuttons
+				maxchar = 100
+				values = {"Male","Female","Transgender"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Role
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Student","Faculty","Staff","Admin"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Department
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Computer Science Engineering","Artificial Intelligence & Data  Science","Artificial Intelligence & Machine Learning","Electronics & Communication Engineering","Electrical & Electronics Engineering","Mechanical Engineering"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Year_of_Study
+			(
+				type = picklist
+				maxchar = 100
+				values = {"1","2","3","4","N/A"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have unique Register_Number
+			(
+    			type = text
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Campus_Location
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Chennai","Kanchipuram","Tiruvallur","Chengalpattu","Coimbatore","KaniyaKumari","Thothukudi","Vellore","Ariyalur","Karikudi"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			User_Status
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Active","Suspended","Inactive"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Profile_Photo1
+			(
+    			type = image
+				displayname = "Profile_Photo"
+				source  = file
+				aspect ratio = original
+				camera = primary
+				show gallery = true
+				switch camera = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Joined_Date
+			(
+    			type = date
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Total_Borrowed
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Sustainability_Points
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Signature
+			(
+    			type = signature
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			plain
+			(
+    			type = plaintext
+				value = "Add your Note here ..."
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			How_Do_You_Know_About_This
+			(
+				type = list	
+				displayname = "How Do You Know About This ?"
+				values = {"Instgram","College","Faculty","Friends"}
+				height = 60px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Item_Categories
+		{
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Category_ID
+			(
+    			type = autonumber
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Category_Name
+			(
+    			type = text
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Category_Description
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Category_Type
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Academic","Electronic","Furniture","Sports","Other"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Default_Reuse_Life_Days
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Is_Active
+			(
+				type = checkboxes	
+				values = {"Checked","UnChecked"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Sustainability_Factor
+			(
+				type = decimal
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			ITEM_MAINTENANCE
+			(
+				type = grid
+				displayname = "ITEM MAINTENANCE"
+				values  = Maintenance_Requests.ID
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Item_Donations
+		{
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Donation_ID
+			(
+    			type = autonumber
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Donor_User
+			(
+				type = picklist	
+				values  = Campus_Users.ID
+    			displayformat = [Register_Number]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Donor_Name
+			(
+				type = picklist	
+				values  = Campus_Users.ID
+    			displayformat = [Register_Number]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Donor_Email
+			(
+    			type = email
+				maxchar = 80
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Item_Name
+			(
+				type = picklist	
+				values  = Reusable_Items.ID
+    			displayformat = [Item_Name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Category
+			(
+				type = picklist	
+				values  = Item_Categories.ID
+    			displayformat = [Category_Name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Description
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Quantity
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Condition_field
+			(
+				type = checkboxes	
+				displayname = "Condition"
+				values = {"Checked","Unchecked"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Donation_Photo
+			(
+    			type = image
+				source  = file
+				aspect ratio = original
+				camera = primary
+				show gallery = true
+				switch camera = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Estimated_Value
+			(
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Convenice_Charge
+			(
+				displayname = "Convenice Charge"
+				type = INR
+				format = commadotwestern
+				decimalplace = 0
+	 			row = 1
+	 			column = 1   
+				width = medium
+    			Formula_Properties
+    			(
+    						value =  input.Estimated_Value * 0.10
+    						visibility = true
+    			)
+			)
+			Donation_Date
+			(
+    			type = date
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Collection_Location
+			(
+    			type = text
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Review_Status
+			(
+				type = checkboxes	
+				values = {"Completed","Not Completed"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Reviewed_By
+			(
+				type = picklist	
+				values  = Campus_Users.ID
+    			displayformat = [Register_Number]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Review_Notes
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Review_Status_Prediction
+			(
+    			type = text
+				displayname = "Review_Status Prediction"
+	 			row = 1
+	 			column = 1   
+				width = medium
+						AI_Properties
+						(
+									fieldtype = Prediction
+									modelname = "Item_Donation_Predict"
+									supportingfield = {Estimated_Value,Quantity}
+						)
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Item_Loans
+		{
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Loan_ID
+			(
+    			type = autonumber
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Request
+			(
+				type = picklist	
+				values  = Reuse_Requests.ID
+    			displayformat = [Request_ID]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Borrower
+			(
+				type = picklist	
+				values  = Campus_Users.ID
+    			displayformat = [Full_Name.prefix + Full_Name.first_name + " " + Full_Name.last_name + " " + Full_Name.suffix]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Item
+			(
+				type = picklist	
+				values  = Reusable_Items.ID
+    			displayformat = [Item_Name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Monthly_Status
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Completed","In Progress","Overdue","Pending"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Monthly_Period
+			(
+    			type = text
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Quantity_Issued
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Issue_Date
+			(
+    			type = date
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Due_Date
+			(
+    			type = date
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Issued_By
+			(
+				type = picklist	
+				values  = Campus_Users.ID
+    			displayformat = [" " + Full_Name.prefix + " " + Full_Name.first_name + " " + Full_Name.last_name + " " + Full_Name.suffix]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Loan_Status
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Active","Returned","Overdue","Lost"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Actual_Return_Date
+			(
+    			type = date
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Extension_Count
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Fine_Amount
+			(
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Loan_Notes
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			ITEM_RETURN
+			(
+				type = grid
+				displayname = "ITEM RETURN"
+				values  = Item_Returns.ID
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Item_Returns
+		{
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Return_ID1
+			(
+    			type = autonumber
+				displayname = "Return_ID"
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Loan
+			(
+				type = picklist	
+				values  = Item_Loans.ID
+    			displayformat = [Loan_ID]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Returned_By
+			(
+				type = picklist	
+				values  = Campus_Users.ID
+    			displayformat = [Register_Number]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Return_Date
+			(
+    			type = date
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Quantity_Returned
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Return_Condition
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Excellent","Good","Damaged"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Inspection_Notes
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Inspection_Photo
+			(
+    			type = image
+				source  = file
+    			file count = 10
+				camera = primary
+				show gallery = true
+				switch camera = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Damage_Charge
+			(
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Inspected_By
+			(
+				type = picklist	
+				values  = Campus_Users.ID
+    			displayformat = [Register_Number]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Return_Status
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Pending","Inspection","Accepted","Maintenance Required"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Stock_Updated
+			(
+				type = checkboxes	
+				values = {"unchecked","checked"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Item_Transfers
+		{
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Transfer_ID
+			(
+    			type = autonumber
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Item
+			(
+				type = picklist	
+				values  = Item_Categories.ID
+    			displayformat = [Category_ID]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Quantity_Transferred
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Source_Location
+			(
+    			type = text
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Destination_Location
+			(
+    			type = text
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Requested_By
+			(
+				type = picklist	
+				values  = Campus_Users.ID
+    			displayformat = [Register_Number]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Approved_By
+			(
+				type = picklist	
+				values  = Campus_Users.ID
+    			displayformat = [Register_Number]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Transfer_Date
+			(
+    			type = date
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Transfer_Status
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Completed","InCompleted"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Received_By
+			(
+				type = picklist	
+				values  = Campus_Users.ID
+    			displayformat = [Register_Number]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Received_Date
+			(
+    			type = date
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Transfer_Notes
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+			blueprint components
+			{
+				stages = {"Libray","Admin","Main Block","Stop","Exchnge Room"}
+			}
+		}
+		form Maintenance_Requests
+		{
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Maintenance_ID
+			(
+    			type = autonumber
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Reusable_Items
+			(
+				type = picklist	
+				values  = Reusable_Items.ID
+    			displayformat = [Item_Name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Related_Loan
+			(
+				type = picklist	
+				values  = Item_Loans.ID
+    			displayformat = [Loan_ID]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Reported_By1
+			(
+				type = picklist	
+				displayname = "Reported_By"
+				values  = Campus_Users.ID
+    			displayformat = [" " + Full_Name.prefix + " " + Full_Name.first_name + " " + Full_Name.last_name + " " + Full_Name.suffix]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Issue_Type
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Repair","Cleaning","Inspection","Replacement"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Problem_Description
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Problem_Photo
+			(
+    			type = image
+				source  = file
+				aspect ratio = original
+				camera = primary
+				show gallery = true
+				switch camera = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Priority
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Low","Medium","High","Critical"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Assigned_To
+			(
+				type = picklist	
+				values  = Campus_Users.ID
+    			displayformat = [Register_Number]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Report_Date
+			(
+    			type = date
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Target_Completion_Date
+			(
+    			type = date
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Maintenance_Status
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Open","Assigned","In Progress","Completed","Closed"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Repair_Cost
+			(
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Resolution_Notes
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Sentiment
+			(
+				type = picklist
+				displayname = "Maintenance_Recommendation"
+				maxchar = 100
+	 			row = 1
+	 			column = 1   
+				width = medium
+						AI_Properties
+						(
+									fieldtype = SentimentAnalysis
+									basefield = Problem_Description
+						)
+			)
+			Maintanance_Steps
+			(
+    			type = ar
+				displayname = "Maintanance Steps"
+				ar sets = {"Guide 1"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Reusable_Items
+		{
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Item_ID
+			(
+    			type = autonumber
+				start index = 1000
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Item_Name
+			(
+    			type = text
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Category_Name
+			(
+				type = picklist	
+				values  = Item_Categories.ID
+    			displayformat = [Category_Name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Borrower_Active_Loans
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Item_Description
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Item_Type
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Individual Asset","Bulk Stock"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Condition_field
+			(
+				type = picklist
+				displayname = "Condition"
+				maxchar = 100
+				values = {"New","Excellent","Good","Damaged"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Total_Quantity
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Available_Quantity
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Item_Location
+			(
+    			type = text
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Storage_Details
+			(
+    			type = text
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Ownership_Type
+			(
+				type = picklist
+				maxchar = 100
+				values = {"College","Donated","Community"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Donor_User
+			(
+				type = picklist	
+				values  = Campus_Users.ID
+    			displayformat = [" " + Full_Name.prefix + " " + Full_Name.first_name + " " + Full_Name.last_name + " " + Full_Name.suffix]
+				allow new entries
+				[
+					displayname = "N/A"
+				]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Date_Acquired
+			(
+    			type = date
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Total_Duration_Days
+			(
+				type = number
+				displayname = "Total Duration Days"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Estimated_Value
+			(
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Item_Image
+			(
+    			type = image
+				source  = file
+				aspect ratio = original
+				camera = primary
+				show gallery = true
+				switch camera = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			About_Item
+			(
+    			type = video
+				displayname = "About Item"
+    			duration=30
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Item_Document
+			(
+    			type = upload file
+				browse = local_drive
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			QR_Code
+			(
+				type = qrcode
+				displayname = "Item_QR_Code"
+				value = "${Item_ID}${Item_Name}"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Reuse_Status
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Available","Reserved","Issued","Maintenance","Retired"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Condition_Notes
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Category_Prediction
+			(
+    			type = text
+				displayname = "﻿AI_Category_Prediction"
+	 			row = 1
+	 			column = 1   
+				width = medium
+						AI_Properties
+						(
+									fieldtype = Prediction
+									modelname = "AI_Category_Suggestion"
+									supportingfield = {Available_Quantity,Total_Quantity}
+						)
+			)
+			Keyword
+			(
+    			type = textarea
+				displayname = "AI_Keywords"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+						AI_Properties
+						(
+									fieldtype = KeywordExtractor
+									basefield = Item_Name
+						)
+			)
+			Last_Inspection_Date
+			(
+    			type = date
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Added_By
+			(
+				type = picklist	
+				values  = Campus_Users.ID
+    			displayformat = [" " + Full_Name.prefix + " " + Full_Name.first_name + " " + Full_Name.last_name + " " + Full_Name.suffix]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Invoices
+			(
+				type = picklist	
+				datasource = zoho_invoice_invoices
+    			displayformat = [total_amount]
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Object_Detection
+			(
+    			type = textarea
+				displayname = "Object Detection Verification"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+						AI_Properties
+						(
+									fieldtype = ObjectDetection
+									basefield = Item_Image
+						)
+			)
+			OCR
+			(
+    			type = textarea
+				displayname = "ITEM DETAILS IN REPORT"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+						AI_Properties
+						(
+									fieldtype = OCR
+									basefield = Item_Document
+						)
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Reuse_Requests
+		{
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Request_ID
+			(
+    			type = autonumber
+				start index = 100
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Full_Name
+			(
+				type = picklist	
+				values  = Campus_Users.ID
+    			displayformat = [" " + Full_Name.prefix + " " + Full_Name.first_name + " " + Full_Name.last_name + " " + Full_Name.suffix]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Reusable_Items1
+			(
+				type = picklist	
+				displayname = "Reusable_Items"
+				values  = Reusable_Items.ID
+    			displayformat = [Item_Name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Quantity_Requested
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Request_Date
+			(
+    			type = date
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Required_From
+			(
+    			type = date
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Expected_Return_Date
+			(
+    			type = date
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Purpose
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Priority
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Normal","Medium","High"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Request_Status
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Pending","Approved","Rejected","Cancelled"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Approver
+			(
+				type = picklist	
+				values  = Campus_Users.ID
+    			displayformat = [" " + Full_Name.prefix + " " + Full_Name.first_name + " " + Full_Name.last_name + " " + Full_Name.suffix]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Approval_Notes
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Created_At
+			(
+    			type = datetime
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+	}
+	reports
+	{
+		default list Campus_Users_Report
+		{
+			displayName = "Campus_Users Report"
+			show all rows from Campus_Users    
+			(
+				User_ID
+				Full_Name 
+				College_Email
+				Phone_Number1 as "Phone_Number"
+				(
+					displayformat = plainnumber 
+				)
+				Role
+				Department
+				Year_of_Study
+				Register_Number
+				Campus_Location
+				User_Status
+				Joined_Date
+				Total_Borrowed
+				Sustainability_Points
+				Profile_Photo1 as "Profile_Photo"
+				User_Name as "User Name"
+				Signature
+				Gender
+				How_Do_You_Know_About_This as "How Do You Know About This ?"
+			)
+		}
+		default list Item_Categories_Report
+		{
+			displayName = "Item_Categories Report"
+			show all rows from Item_Categories    
+			(
+				Category_ID
+				Category_Name
+				Category_Description
+				Category_Type
+				Default_Reuse_Life_Days
+				Is_Active
+				Sustainability_Factor
+			)
+		}
+		default list Reusable_Items_Report
+		{
+			displayName = "Reusable_Items Report"
+			show all rows from Reusable_Items    
+			(
+				Item_ID
+				Item_Name
+				Category_Name
+				Item_Description
+				Item_Type
+				Condition_field as "Condition"
+				Total_Quantity
+				Available_Quantity
+				Item_Location
+				Storage_Details
+				Ownership_Type
+				Donor_User
+				Date_Acquired
+				Estimated_Value
+				Item_Image
+				Item_Document
+				QR_Code as "Item_QR_Code"
+				Reuse_Status
+				Condition_Notes
+				Keyword as "AI_Keywords"
+				Last_Inspection_Date
+				Added_By
+				Category_Prediction as "﻿AI_Category_Prediction"
+				Borrower_Active_Loans
+				Total_Duration_Days as "Total Duration Days"
+				Invoices
+				Object_Detection as "Object Detection Verification"
+				About_Item as "About Item"
+				OCR as "ITEM DETAILS IN REPORT"
+			)
+		}
+		default list Reuse_Requests_Report
+		{
+			displayName = "Reuse_Requests Report"
+			show all rows from Reuse_Requests    
+			(
+				Request_ID
+				Quantity_Requested
+				Request_Date
+				Required_From
+				Expected_Return_Date
+				Purpose
+				Priority
+				Request_Status
+				Approval_Notes
+				Created_At
+				Approver
+				Reusable_Items1 as "Reusable_Items"
+				Full_Name
+			)
+		}
+		default list Item_Loans_Report
+		{
+			displayName = "Item_Loans Report"
+			show all rows from Item_Loans    
+			(
+				Loan_ID
+				Request
+				Borrower
+				Item
+				Quantity_Issued
+				Issue_Date
+				Due_Date
+				Issued_By
+				Loan_Status
+				Actual_Return_Date
+				Extension_Count
+				Fine_Amount
+				Loan_Notes
+				Monthly_Status
+				Monthly_Period
+			)
+		}
+		default list Item_Returns_Report
+		{
+			displayName = "Item_Returns Report"
+			show all rows from Item_Returns    
+			(
+				Loan
+				Returned_By
+				Return_Date
+				Quantity_Returned
+				Return_Condition
+				Inspection_Notes
+				Inspection_Photo
+				Damage_Charge
+				Inspected_By
+				Return_Status
+				Stock_Updated
+				Return_ID1 as "Return_ID"
+			)
+		}
+		default list Maintenance_Requests_Report
+		{
+			displayName = "Maintenance_Requests Report"
+			show all rows from Maintenance_Requests    
+			(
+				Maintenance_ID
+				Reusable_Items
+				Related_Loan
+				Issue_Type
+				Problem_Description
+				Problem_Photo
+				Priority
+				Assigned_To
+				Report_Date
+				Target_Completion_Date
+				Maintenance_Status
+				Repair_Cost
+				Resolution_Notes
+				Sentiment as "Maintenance_Recommendation"
+				Maintanance_Steps as "Maintanance Steps"
+				Reported_By1 as "Reported_By"
+			)
+		}
+		default list Item_Transfers_Report
+		{
+			displayName = "Item_Transfers Report"
+			show all rows from Item_Transfers    
+			(
+				Transfer_ID
+				Item
+				Quantity_Transferred
+				Source_Location
+				Destination_Location
+				Requested_By
+				Approved_By
+				Transfer_Date
+				Transfer_Status
+				Received_By
+				Received_Date
+				Transfer_Notes
+			)
+		}
+		default list Item_Donations_Report
+		{
+			displayName = "Item_Donations Report"
+			show all rows from Item_Donations    
+			(
+				Donation_ID
+				Donor_User
+				Donor_Name
+				Donor_Email
+				Item_Name
+				Category
+				Description
+				Quantity
+				Condition_field as "Condition"
+				Donation_Photo
+				Estimated_Value
+				Donation_Date
+				Collection_Location
+				Review_Status
+				Reviewed_By
+				Review_Notes
+				Review_Status_Prediction as "Review_Status Prediction"
+				Convenice_Charge as "Convenice Charge"
+			)
+		}
+		kanban Campus_Users_Report1
+		{
+			displayName = "Campus_Users_Report"
+			show all rows from Campus_Users    
+			(
+				User_ID
+				Full_Name 
+				College_Email
+				Phone_Number1 as "Phone_Number"
+				(
+					displayformat = plainnumber 
+				)
+				Role
+				Department
+				Year_of_Study
+				Register_Number
+				Campus_Location
+				User_Status
+				Profile_Photo1 as "Profile_Photo"
+				Joined_Date
+				Total_Borrowed
+				Sustainability_Points
+			)
+			options
+			(
+	 			display field = Role
+	 		)
+		}
+		kanban Item_Categories1
+		{
+			displayName = "Item_Categories"
+			show all rows from Item_Categories    
+			(
+				Category_ID
+				Category_Name
+				Category_Description
+				Category_Type
+				Default_Reuse_Life_Days
+				Is_Active
+				Sustainability_Factor
+			)
+			options
+			(
+	 			display field = Category_Type
+	 		)
+		}
+		list Item_Donations1
+		{
+			displayName = "Item_Donations"
+			show all rows from Item_Donations    
+			(
+				Donation_ID
+				Donor_User
+				Donor_Name
+				Donor_Email
+				Item_Name
+				Category
+				Description
+				Quantity
+				Condition_field as "Condition"
+				Donation_Photo
+				Estimated_Value
+				Donation_Date
+				Collection_Location
+				Review_Status
+				Reviewed_By
+				Review_Notes
+			)
+		}
+		list Item_Loans_Report1
+		{
+			displayName = "Item_Loans_Report"
+			show all rows from Item_Loans    
+			(
+				Loan_ID
+				Request
+				Borrower
+				Item
+				Quantity_Issued
+				Issue_Date
+				Due_Date
+				Issued_By
+				Loan_Status
+				Actual_Return_Date
+				Extension_Count
+				Fine_Amount
+				Loan_Notes
+			)
+		}
+		list Item_Returns_Report1
+		{
+			displayName = "Item_Returns_Report"
+			show all rows from Item_Returns    
+			(
+				Loan
+				Returned_By
+				Return_Date
+				Quantity_Returned
+				Return_Condition
+				Inspection_Notes
+				Inspection_Photo
+				Damage_Charge
+				Inspected_By
+				Return_Status
+				Stock_Updated
+			)
+		}
+		list Item_Transfers_Report1
+		{
+			displayName = "Item_Transfers_Report"
+			show all rows from Item_Transfers    
+			(
+				Transfer_ID
+				Item
+				Quantity_Transferred
+				Source_Location
+				Destination_Location
+				Requested_By
+				Approved_By
+				Transfer_Date
+				Transfer_Status
+				Received_By
+				Received_Date
+				Transfer_Notes
+			)
+		}
+		list Maintenance_Requests_Report1
+		{
+			displayName = "Maintenance_Requests_Report"
+			show all rows from Maintenance_Requests    
+			(
+				Maintenance_ID
+				Reusable_Items
+				Related_Loan
+				Issue_Type
+				Problem_Description
+				Problem_Photo
+				Priority
+				Assigned_To
+				Report_Date
+				Target_Completion_Date
+				Maintenance_Status
+				Repair_Cost
+				Resolution_Notes
+			)
+		}
+		list Reusable_Items_Report1
+		{
+			displayName = "Reusable_Items_Report"
+			show all rows from Reusable_Items    
+			(
+				Item_ID
+				Item_Name
+				Category_Name
+				Item_Description
+				Item_Type
+				Condition_field as "Condition"
+				Total_Quantity
+				Available_Quantity
+				Item_Location
+				Storage_Details
+				Ownership_Type
+				Donor_User
+				Date_Acquired
+				Estimated_Value
+				Item_Image
+				Item_Document
+				QR_Code as "Item_QR_Code"
+				Reuse_Status
+				Condition_Notes
+				Keyword as "AI_Keywords"
+				Last_Inspection_Date
+				Added_By
+			)
+		}
+		list Reuse_Requests_Report1
+		{
+			displayName = "Reuse_Requests_Report"
+			show all rows from Reuse_Requests    
+			(
+				Request_ID
+				Quantity_Requested
+				Request_Date
+				Required_From
+				Expected_Return_Date
+				Purpose
+				Priority
+				Request_Status
+				Approval_Notes
+				Created_At
+			)
+		}
+	}
+	pages
+	{
+		page Dashboard
+		{
+			displayname = "Dashboard"
+			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Panel 5'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<button \n\t\tmargin = '0px'\n\tpadding = '0px'\n\n\tcolor = 'theme'\n\tsize = '16px'\n    borderColor = '#BC2AE7'\n    borderWidth = '1px'\n\ttext ='WELCOME TO THE CIRCULAR CAMPUS EXCHANGE PLATFORM'\n\t\tbgColor = '#FFFFFF'\n\t\tcornerRadius = '3px' \n/>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='33%'\n   \t>\n\t<panel elementName='Panel'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tcolor = '#333333'\n\tsize = '16px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Total Users'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '5px' \n\tmarginBottom = '0px'\n\tmarginTop = '5px'\n\tpadding = '0px'\n\tcolor = '#FF0048'\n\tsize = '36px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#FF0048'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Campus_Users.ID.count'\n>\n</text>\n\n</pc><pc \n\t\n>\n\t<image  \n\t\tmarginTop = '5px'\n\n\tcolor = '#FFFFFF'\n\tbgColor = '#FF0048'\n\twidth = '40px'\n\theight = '40px'\n\ttype = 'icon'\n\tvalue = 'users-2-a-star'\n\tsize = '22px'\n\tcornerRadius = '20px'\n\ticonType = 'solid'\n/>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='34%'\n   \t>\n\t<panel elementName='Panel 2'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n\t\thAlign = 'right'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tcolor = '#333333'\n\tsize = '16px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Reuse requests'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tpadding = '0px'\n\tcolor = '#00D9B1'\n\tsize = '36px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#00D9B1'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Reuse_Requests.ID.count'\n>\n</text>\n\n</pc>\n</pr>\n</pc><pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '7px'\n\n\tcolor = '#FFFFFF'\n\tbgColor = '#00D9B1'\n\twidth = '52px'\n\theight = '52px'\n\ttype = 'icon'\n\tvalue = 'ui-1-email-85'\n\tsize = '32px'\n\tcornerRadius = '26px'\n\ticonType = 'solid'\n/>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='33%'\n   \t>\n\t<panel elementName='Panel 1'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginRight = '7px' \n\n\tcolor = '#FFFFFF'\n\tbgColor = '#2A70E7'\n\twidth = '52px'\n\theight = '52px'\n\ttype = 'icon'\n\tvalue = 'business-gold'\n\tsize = '24px'\n\tcornerRadius = '26px'\n\ticonType = 'solid'\n/>\n</pc><pc \n\t\tpadding = '5px'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n\t\thAlign = 'left'\n>\n\t<text \n\n\tcolor = '#333333'\n\tsize = '16px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Total Items'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n\t\thAlign = 'left'\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '2px'\n\tpadding = '0px'\n\tcolor = '#2A70E7'\n\tsize = '36px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#2A70E7'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Reusable_Items.ID.count'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='50%'\n   \t>\n\t<chart \n\telementName='Chart'\n\n\ttype = 'Column'\n\txtitle = 'ITEM NAME'\n\tytitle = 'NO OF ITEMS'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme1'\n\tlegendPos = 'center.top'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Reusable_Items'\n\txfield = 'Item_Name'\n\tyfields = 'value:Available_Quantity'\n/>\n\n</column><column\n   \t\t width='50%'\n   \t>\n\t<chart \n\telementName='Chart 1'\n\n\ttype = 'Donut'\n\txtitle = 'ITEM NAME'\n\tytitle = 'QUANTITY'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme1'\n\tlegendPos = 'center.top'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Reusable_Items'\n\txfield = 'Item_Name'\n\tyfields = 'value:Total_Quantity'\n/>\n\n</column>\n</row><row>\n\t<column\n   \t\t width='50%'\n   \t>\n\t<panel elementName='Panel 3'\n \n\t\n\ttitle = 'Directly Register User Details'\n\t\n\t\t    italicTitle = 'true'\n            boldTitle = 'true'\n\t\ttitleColor = '#222326'\n\t\ttitleFontFamily = 'arimo, sans-serif'\n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t<button \n\t\tmargin = '0px'\n\tpaddingTop = '12px'\n\tpaddingLeft = '15px'\n\tpaddingRight = '15px'\n\tpaddingBottom = '12px'\n\n    action = 'OpenForm'\n\t\tcomponentLinkName = 'Campus_Users'\n\t\ttarget = 'new-window'\n\tcolor = '#FFFFFF'\n\tsize = '16px'\n    borderColor = '#FFFFFF'\n    borderWidth = '0px'\n\ttext ='ADD USER DETAILS'\n\t\tbgColor = '#0072F4'\n\t\tcornerRadius = '3px' \n/>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='50%'\n   \t>\n\t<row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<search \n\telementName='Search'\n\tpaddingTop = '0px'\n\tpaddingLeft = '0px'\n\tpaddingRight = '0px'\n\tpaddingBottom = '0px'\n\tbgtype = 'none'\n\tbgColor = '#FFFFFF'\n\n\tshape = 'flat'\n\tresultComponent = 'report'\n\tlinkName = 'Item_Transfers_Report'\n\ttarget = 'new-window'\n\tcriteriaString = 'Transfer_ID == input.searchString || (Transfer_Notes.startsWith(input.searchString) &amp;&amp; Approved_By.ID == input.searchString)'\n\tfontFamily = 'default'\n\tappLinkName = 'thisapp'\n\tstyle = '1'\n\tplaceholder = '  ITEM DETAILS '\n\n>\n<searchbar color=\"#000000\" bgColor=\"#FFFFFF\" fontSize=\"15px\"\n/></search>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Panel 4'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t<button \n\t\tmargin = '0px'\n\tpaddingTop = '12px'\n\tpaddingLeft = '15px'\n\tpaddingRight = '15px'\n\tpaddingBottom = '12px'\n\n    action = 'OpenReport'\n\t\tcomponentLinkName = 'Reusable_Items_Report'\n\t\ttarget = 'new-window'\n\tcolor = '#FFFFFF'\n\tsize = '16px'\n    borderColor = '#FFFFFF'\n    borderWidth = '0px'\n\ttext ='REUSABLE ITEMS REPORT'\n\t\tbgColor = '#0072F4'\n\t\tcornerRadius = '3px' \n/>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Dashboard_Title_Bar.title-bar.tinted.comfortable'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '0px'\n\tbgColor = 'theme:10'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n    \tcornerRadius = '8px'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '24px'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '12px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Circular Campus Reuse'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='6px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme:75'\n\tsize = '24px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Dashboard overview'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='6px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '13px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'CRES'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Dashboard_KPI_Strip.kpi-strip.tinted.comfortable'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '0px'\n\tbgColor = 'theme:10'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n    \tcornerRadius = '8px'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '24px'\n\tpaddingLeft = '24px'\n\tpaddingRight = '24px'\n\tpaddingBottom = '24px'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\n\t\twidth = '16.66%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '11px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'CAMPUS USERS'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='6px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme:75'\n\tsize = '24px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t  value = 'thisapp.Campus_Users.ID.count'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc><pc \n\t\n\t\twidth = '16.66%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '11px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'REUSABLE ITEMS'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='6px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme:75'\n\tsize = '24px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t  value = 'thisapp.Reusable_Items.ID.count'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc><pc \n\t\n\t\twidth = '16.66%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '11px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'PENDING REQUESTS'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='6px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme:75'\n\tsize = '24px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t  value = 'thisapp.Reuse_Requests.ID.count'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc><pc \n\t\n\t\twidth = '16.66%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '11px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'ACTIVE LOANS'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='6px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme:75'\n\tsize = '24px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t  value = 'thisapp.Item_Loans.ID.count'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc><pc \n\t\n\t\twidth = '16.66%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '11px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'OVERDUE LOANS'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='6px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme:75'\n\tsize = '24px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t  value = 'thisapp.Item_Loans.ID.count'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc><pc \n\t\n\t\twidth = '16.7%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '11px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'ITEMS REUSED'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='6px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme:75'\n\tsize = '24px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t  value = 'thisapp.Item_Returns.ID.count'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='50%'\n   \t>\n\t<chart \n\telementName='Chart 2'\n\n\t\n\ttitle = 'Monthly Loans and Returns'\n\t\n\ttype = 'Column'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme'\n\tlegendPos = 'center.top'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Item_Loans'\n\txfield = 'Issue_Date'\n\tyfields = 'count:Loan_ID'\n\tdateGrouping = 'month_year'\n/>\n\n</column><column\n   \t\t width='50%'\n   \t>\n\t<chart \n\telementName='Chart 3'\n\n\t\n\ttitle = 'Requests by Status'\n\t\n\ttype = 'Donut'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme'\n\tlegendPos = 'center.top'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Reuse_Requests'\n\txfield = 'Request_Status'\n\tyfields = 'count:Request_ID'\n/>\n\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<chart \n\telementName='Chart 4'\n\n\t\n\ttitle = 'Users by Role'\n\t\n\ttype = 'Column'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme'\n\tlegendPos = 'center.top'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Campus_Users'\n\txfield = 'Role'\n\tyfields = 'count:User_ID'\n/>\n\n</column>\n</row><row>\n\t<column\n   \t\t width='33%'\n   \t>\n\t<board\n    \n\tbgColor = '#FFFFFF'\n        bgColorType = 'solid'\n\tpadding = '0px'\nelementName='Board'\n    layoutType = 'grid'\n        items = '2'\n    appLinkName = 'thisapp'\n    formLinkName = 'Item_Loans'\n    rankBy = 'Loan_ID'\n    rankOrder = 'highestToLowest'\n    rankAggregate = 'count'\n    limit = '5'\n    groupBy = 'Loan_Status'\n>\n<boardHeader>\n    <pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '14px'\n\tpaddingLeft = '15px'\n\tpaddingRight = '15px'\n\tpaddingBottom = '14px'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<text \n\n\tcolor = '#000000'\n\tsize = '16px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Overdue Loans'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</boardHeader>\n<boardLayout\n                paddingRight = '15px'\n                paddingBottom = '14px'\n                paddingLeft = '15px'\n                paddingTop = '2px'\n                itemGap = '10px'\n>\n    <pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '10px'\n\n    borderColor = '#F2F2F2'\n    borderWidth = '1px'\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n    \tcornerRadius = '12px'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginBottom = '10px'\n\n    borderWidth = '0px'\n\tcolor = '#000000'\n\tbgColor = '#F7F7FB'\n\twidth = '40px'\n\theight = '40px'\n\ttype = 'icon'\n\tvalue = 'shopping-mobile-cart'\n\tsize = '22px'\n\tcornerRadius = '20px'\n\ticonType = 'outline'\n/>\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginBottom = '10px'\n\tcolor = '#000000'\n\tsize = '16px'\n\ttype = 'boardData'\n\n\n    lineHeight = '22'\n    numOfLines = '1'\n\n\n\n\n\n\t  value = 'groupedField'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '21px'\n\tbold = 'true' \n\ttype = 'boardData'\n\n\n    lineHeight = '28'\n    numOfLines = '1'\n\n\n\n\n\n\t  value = 'rankAggregate'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</boardLayout>\n</board>\n</column><column\n   \t\t width='33%'\n   \t>\n\t<chart \n\telementName='Chart 5'\n\n\t\n\ttitle = 'Items by Category'\n\t\n\ttype = 'Column'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme'\n\tlegendPos = 'center.top'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Reusable_Items'\n\txfield = 'Category_Name'\n\tyfields = 'count:Item_ID'\n/>\n\n</column><column\n   \t\t width='33%'\n   \t>\n\t<panel elementName='Recent_Activity_Pane.list-panel.tinted.comfortable'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '0px'\n\tbgColor = 'theme:10'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n    \tcornerRadius = '8px'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '24px'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '66%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme:75'\n\tsize = '15px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Latest Updates'\n>\n</text>\n\n</pc><pc \n\t\n\t\twidth = '34%'\n\t\thAlign = 'right'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tpaddingTop = '4px'\n\tpaddingLeft = '10px'\n\tpaddingRight = '10px'\n\tpaddingBottom = '4px'\n\tcolor = '#575757'\n\tsize = '11px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\tbgColor = '#F6F7F9'\n\tcornerRadius = '10px'\n\n\n\n\n\n\n\t  value = 'Recent Activity'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme:75'\n\tsize = '13px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'New donation: 10 office chairs'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='2px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '12px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = '2 h ago'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='12px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='1px'\n>\n\t<pc \n\t\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='12px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme:75'\n\tsize = '13px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Maintenance: broken desk drawer'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='2px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '12px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = '5 h ago'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='12px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='1px'\n>\n\t<pc \n\t\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='12px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme:75'\n\tsize = '13px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Transfer: Library to Hostel B'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='2px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '12px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Yesterday'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='12px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='1px'\n>\n\t<pc \n\t\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='12px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme:75'\n\tsize = '13px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Request approved: Projector'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='2px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '12px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Yesterday'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='12px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='1px'\n>\n\t<pc \n\t\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='12px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme:75'\n\tsize = '13px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Return received: Lab stool x2'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='2px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '12px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = '2 days ago'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row>\n</layout>\n</zml>"
+		}
+	}
+	chats
+	{
+		chat Circular_Campus_Reuse_Assistant
+		{
+			display name = "Circular Campus Reuse Assistant"
+			access level = read_write
+			instructions
+			(
+				value = "Act as a smart campus reuse assistant for the Circular Campus platform. Your primary goal is to help students, faculty, staff, and managers manage reusable items to promote sustainability.\nCore Capabilities:\nAssist users in finding available reusable items based on category, condition, location, and requirements.\nGuide users through submitting borrowing requests (Item_Loans) and Reuse_Requests.\nHelp track return deadlines, check request statuses, and identify overdue items.\nRegister item donations (Item_Donations) and report damaged items via Maintenance_Requests.\nFor inventory managers: Identify low-stock/underused items, review pending requests, suggest alternatives for unavailable items, and provide inventory/sustainability summaries.\nRole-Based Access & Safety:\n- Strictly enforce role-based access. Students see only their own data; managers/admins see authorized management data.\n- NEVER expose private user information.\n- NEVER approve requests, issue items, change stock quantities, accept donations, or modify records without explicit user confirmation and required permissions.\n- If information is missing, ask a relevant follow-up question or explain the limitation. Do not invent answers.\nInteraction Style:\n- Use a friendly, professional, and simple-English conversational tone.\n- Focus on making campus reuse easier, improving inventory utilization, and supporting a sustainable community.\n- When AI predictions are available (e.g., categorizing items from descriptions), suggest them but always allow the user or manager to verify the results.\n- Explain borrowing and return procedures clearly when asked."
+			)
+			personalization
+			(
+				welcome message = "Welcome to the Circular Campus Smart Reusable Item Management System! I can help you find items, submit loans, track returns, register donations, and manage inventory. How can I assist you today?"
+			)
+			forms
+			(
+				Campus_Users
+				Maintenance_Requests
+				Reusable_Items
+				Item_Loans
+				Item_Categories
+				Reuse_Requests
+				Item_Returns
+				Item_Donations
+			)
+		}
+	}
+
+
+		 functions
+		 {
+			 Deluge
+			 {
+				 void cancelOrder(int requestID, string reason)
+                 {
+                 	// Find request using Request_ID
+                 	req = Reuse_Requests[Request_ID == requestID];
+                 	if(req.ID == null)
+                 	{
+                 		info "Request not found.";
+                 		return;
+                 	}
+                 	// Check request status
+                 	if(req.Request_Status == "Cancelled")
+                 	{
+                 		info "Request is already cancelled.";
+                 		return;
+                 	}
+                 	if(req.Request_Status == "Approved" || req.Request_Status == "Completed")
+                 	{
+                 		info "This request cannot be cancelled.";
+                 		return;
+                 	}
+                 	// Find the linked Campus_Users record
+                 	userRecord = Campus_Users[ID == req.Full_Name];
+                 	if(userRecord.ID == null)
+                 	{
+                 		info "Linked Campus User not found.";
+                 		return;
+                 	}
+                 	// Get registered email
+                 	userEmail = userRecord.College_Email;
+                 	if(userEmail == null || userEmail == "")
+                 	{
+                 		info "User email address is missing.";
+                 		return;
+                 	}
+                 	// Set cancellation reason
+                 	if(reason == null || reason.trim() == "")
+                 	{
+                 		reason = "No reason provided";
+                 	}
+                 	// Update request status
+                 	req.Request_Status="Cancelled";
+                 	req.Approval_Notes="Cancelled: " + reason;
+                 	// Send email to the selected user
+                 	sendmail
+                 	[
+                 		from :zoho.adminuserid
+                 		to :userEmail
+                 		subject :"Circular Campus - Reuse Request Cancelled"
+                 		message :"Hello " + userRecord.Full_Name + ",\n\nYour reuse request has been cancelled successfully.\n\nRequest ID: " + req.Request_ID + "\nQuantity: " + req.Quantity_Requested + "\nReason: " + reason + "\nStatus: Cancelled\n\nThank you,\nCircular Campus Team"
+                 	]
+                 	info "Request cancelled successfully.";
+                 	info "Email sent to: " + userEmail;
+                 }
+			 }
+		 }
+
+
+		workflow
+		{
+		form
+		{
+			Validate_Reuse_Request as "Validate_Reuse_Request"
+			{
+				type =  form
+				form = Reuse_Requests
+
+				record event = on add or edit
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Quantity_Requested == null || input.Quantity_Requested < 1)
+										{
+											alert "Requested quantity must be at least 1.";
+											cancel submit;
+										}
+										if(input.Expected_Return_Date < input.Required_From)
+										{
+											alert "Expected return date cannot be before the required-from date.";
+											cancel submit;
+										}
+						)
+					}
+				}
+
+			}
+			Notify_Manager_New_Reques as "Notify_Manager_New_Request"
+			{
+				type =  form
+				form = Reuse_Requests
+
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						success message "Data added or updated successfully";
+					}
+				}
+
+			}
+			Maintenance_Approval_Request as "Maintenance_Approval_Request"
+			{
+				type =  form
+				form = Maintenance_Requests
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											sendmail
+										[
+											from :zoho.adminuserid
+											to :"gowthamdevendran1406@gmail.com"
+											subject :"New Maintenance Approval Request - Circular Campus"
+											message :"A new maintenance request has been submitted in Circular Campus.\n\n" + "Maintenance ID: " + input.Maintenance_ID + "\n" + "Issue Type: " + input.Issue_Type + "\n" + "Priority: " + input.Priority + "\n" + "Status: " + input.Maintenance_Status + "\n\n" + "Please log in to Circular Campus and review the maintenance request."
+										]
+						)
+					}
+				}
+
+			}
+			Update_Rejected_Status as "Update_Rejected_Status"
+			{
+				type =  form
+				form = Reuse_Requests
+
+				record event = on edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Update the Request_Status field to "Rejected" when the approver rejects the request
+										input.Request_Status = "Rejected";
+										// Optionally, log the action or perform additional updates if needed
+										info "Request status updated to Rejected for Request ID: " + input.Request_ID;
+						)
+					}
+				}
+
+			}
+			Update_Approved_Status as "Update_Approved_Status"
+			{
+				type =  form
+				form = Reuse_Requests
+
+				record event = on edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Update the Request_Status field to "Approved" for the current record
+										update Reuse_Requests[ID == input.ID]
+										[
+											Request_Status="Approved"
+										];
+						)
+					}
+				}
+
+			}
+			Approval_Request_Submission as "Approval_Request_Submission"
+			{
+				type =  form
+				form = Reuse_Requests
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Fetch the Approver record from the lookup field
+										approverRecord = Campus_Users[ID == input.Approver];
+										// Check if approver exists and has an email
+										if(approverRecord != null && !approverRecord.College_Email.isNull())
+										{
+											// Prepare email details
+											requestID = input.Request_ID;
+											itemName = input.Reusable_Items1.Item_Name;
+											quantity = input.Quantity_Requested;
+											requestDate = input.Request_Date;
+											purpose = input.Purpose;
+											// Send approval notification email to the approver
+											sendmail
+											[
+												from :zoho.adminuserid
+												to :approverRecord.College_Email
+												subject :"Approval Required: Reuse Request #" + requestID
+												message :"<p>Dear Approver,</p><p>A new reuse request has been submitted for your approval.</p><p><strong>Request Details:</strong></p><ul><li>Request ID: " + requestID + "</li><li>Item: " + itemName + "</li><li>Quantity: " + quantity + "</li><li>Request Date: " + requestDate + "</li><li>Purpose: " + purpose + "</li></ul><p>Please review and approve or reject this request in the system.</p><p>Thank you.</p>"
+												content type :HTML
+											]
+											// Log the action
+											info "Approval notification sent to " + approverRecord.College_Email + " for Request #" + requestID;
+										}
+										else
+										{
+											// Log error if approver is missing or has no email
+											info "Error: Approver not found or has no email address for Request #" + input.Request_ID;
+										}
+						)
+					}
+				}
+
+			}
+		}
+
+		schedule
+		{
+			DAILY_STOCK_DETAILS as "DAILY STOCK DETAILS"
+			{
+				type =  schedule
+				start = "2026-10-20 00:00:00"
+				frequency = daily
+				time zone = "Asia/Kolkata"
+				on start
+				{
+					actions 
+					{
+						sendmail
+						(
+							from : "gowthamdevendran1406@gmail.com"
+							to : "gowthamdevendran1406@gmail.com"
+							subject : "DAILY STOCK DETAILS"
+							message : "<div>${zoho.adminuserid}<br></div>"
+							attachments : view : Item_Categories_Report as PDF
+						)
+					}
+				}
+			}
+			MONTHLY_LOAN_EMAIL_REPORT as "MONTHLY LOAN EMAIL REPORT"
+			{
+				type =  schedule
+				start = "2026-11-01 00:00:00"
+				frequency = monthly
+				time zone = "Asia/Kolkata"
+				on start
+				{
+					actions 
+					{
+					on load
+					(
+						previousMonthDate = zoho.currentdate.toStartOfMonth().addMonth(-1);
+										reportMonth = previousMonthDate.toString("MMMM-yyyy");
+										reportMonthNumber = previousMonthDate.getMonth();
+										reportYear = previousMonthDate.getYear();
+										totalLoans = 0;
+										returnedLoans = 0;
+										pendingLoans = 0;
+										overdueLoans = 0;
+										totalFines = 0.0;
+										for each  loan in Item_Loans
+										{
+											if(loan.Issue_Date != null)
+											{
+												if(loan.Issue_Date.getMonth() == reportMonthNumber && loan.Issue_Date.getYear() == reportYear)
+												{
+													totalLoans = totalLoans + 1;
+													if(loan.Loan_Status == "Returned")
+													{
+														returnedLoans = returnedLoans + 1;
+													}
+													else if(loan.Loan_Status == "Pending")
+													{
+														pendingLoans = pendingLoans + 1;
+													}
+													else if(loan.Loan_Status == "Overdue")
+													{
+														overdueLoans = overdueLoans + 1;
+													}
+													if(loan.Fine_Amount != null)
+													{
+														totalFines = totalFines + loan.Fine_Amount;
+													}
+												}
+											}
+										}
+										emailMessage = "CIRCULAR CAMPUS - MONTHLY LOAN REPORT\n\n";
+										emailMessage = emailMessage + "Report Month: " + reportMonth + "\n\n";
+										emailMessage = emailMessage + "TOTAL LOAN DETAILS\n";
+										emailMessage = emailMessage + "Total Loans: " + totalLoans + "\n";
+										emailMessage = emailMessage + "Returned Loans: " + returnedLoans + "\n";
+										emailMessage = emailMessage + "Pending Loans: " + pendingLoans + "\n";
+										emailMessage = emailMessage + "Overdue Loans: " + overdueLoans + "\n";
+										emailMessage = emailMessage + "Total Fine Amount: Rs. " + totalFines + "\n\n";
+										emailMessage = emailMessage + "This is the automatically generated monthly report from Circular Campus.";
+										sendmail
+										[
+											from :zoho.adminuserid
+											to :"gowtham.d.2024.cse@rajalakshmi.edu.in"
+											subject :"Circular Campus - Monthly Loan Report - " + reportMonth
+											message :emailMessage
+										]
+										info "Monthly loan report email sent.";
+										info emailMessage;
+					)
+					}
+				}
+			}
+		}
+
+		approval
+		{
+			Reuse_Request_Approval as "Reuse Request Approval"
+			{
+				type =  approval
+				form = Reuse_Requests[Request_Status == "Pending"]
+				display fields = [Request_ID,Full_Name,Reusable_Items1,Quantity_Requested,Request_Date,Required_From,Expected_Return_Date]
+				on start
+				{
+				}
+				on level 1
+				{
+					on approve 
+					{
+						actions 
+						{
+							sendmail
+							(
+								from : zoho.loginuserid
+								to : approver.submitter
+								subject : "Approval Request"
+								message : "Your request has been approved."
+							)
+						}
+						actions 
+						{
+						on load
+						(
+							requestRecord = Reuse_Requests[ID == input.ID];
+												if(requestRecord != null)
+												{
+													requestRecord.Request_Status="Approved";
+													requestRecord.Approver=zoho.loginuser;
+													requestRecord.Approval_Notes="Request approved by " + zoho.loginuser;
+													info "Request approved successfully.";
+												}
+						)
+						}
+					}
+					on reject
+					{
+
+						actions 
+						{
+							sendmail
+							(
+								from : zoho.loginuserid
+								to : approver.submitter
+								subject : "Approval Request"
+								message : "Your request has been rejected."
+							)
+						}
+						actions 
+						{
+						on load
+						(
+							requestRecord = Reuse_Requests[ID == input.ID];
+												if(requestRecord != null)
+												{
+													requestRecord.Request_Status="Rejected";
+													requestRecord.Approver=zoho.loginuser;
+													requestRecord.Approval_Notes="Request rejected by " + zoho.loginuser;
+													info "Request rejected successfully.";
+												}
+						)
+						}
+					}
+				}
+			}
+		}
+
+		blueprint
+		{
+    			Delivery_Process as "Delivery Process"
+    			{
+        			type = Blueprint
+        			form = Item_Transfers
+        			start
+        			{
+            			start stage = "Libray"
+            			chart data
+            			{
+                			from port : B
+                			to port   : T3
+                			position  : "0 0"
+                			path      : [27.849999999999994,36.84,27.849999999999994,46.84,27.849999999999994,48.42,25.65549621582031,48.42,25.65549621582031,50,25.65549621582031,60]
+            			}
+        			}
+        			stages
+        			{
+           			"Libray"
+           			{
+               			chart data
+               			{
+                   			position : "-15.223052470852995 60"
+               			}
+           			}
+           			"Admin"
+           			{
+               			chart data
+               			{
+                   			position : "-199 146.05"
+               			}
+           			}
+           			"Main Block"
+           			{
+               			chart data
+               			{
+                   			position : "62 156.05"
+               			}
+           			}
+           			"Stop"
+           			{
+               			chart data
+               			{
+                   			position : "301 231.05"
+               			}
+           			}
+           			"Exchnge Room"
+           			{
+               			chart data
+               			{
+                   			position : "167 65"
+               			}
+           			}
+        			}
+        			transitions
+        			{
+    				Coordinator as "Coordinator"
+    				{
+         				type = normal
+         				from stage = "Libray"
+         				to stage = "Admin"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : L1
+             				to port   : T3
+             				path      : [-15.223052470852995,85.80391489761081,-25.223052470852995,85.80391489761081,-156.89294331772123,85.80391489761081,-156.89294331772123,110.92695744880541,-156.89294331772123,136.05,-156.89294331772123,146.05]
+        				}
+  				}
+    				DELIVERY1 as "DELIVERY1"
+    				{
+         				type = normal
+         				from stage = "Main Block"
+         				to stage = "Stop"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : R1
+             				to port   : B2
+             				path      : [174.66206563506535,181.85391489761082,184.66206563506535,181.85391489761082,238.83103281753267,181.85391489761082,238.83103281753267,292.65782979522163,328.2527014844749,292.65782979522163,328.2527014844749,282.65782979522163]
+        				}
+  				}
+    				DELIVERY2 as "DELIVERY2"
+    				{
+         				type = normal
+         				from stage = "Admin"
+         				to stage = "Stop"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B3
+             				to port   : B4
+             				path      : [-156.89294331772123,197.65782979522163,-156.89294331772123,207.65782979522163,-156.89294331772123,292.65782979522163,94.55622982561431,292.65782979522163,346.00540296894985,292.65782979522163,346.00540296894985,282.65782979522163]
+        				}
+  				}
+    				Service as "Service"
+    				{
+         				type = normal
+         				from stage = "Exchnge Room"
+         				to stage = "Main Block"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B4
+             				to port   : T4
+             				path      : [253.90739068053836,116.60782979522162,253.90739068053836,126.60782979522162,253.90739068053836,136.32891489761082,133.94137709004357,136.32891489761082,133.94137709004357,146.05,133.94137709004357,156.05]
+        				}
+  				}
+    				SERVICE1 as "SERVICE"
+    				{
+         				type = normal
+         				from stage = "Libray"
+         				to stage = "Exchnge Room"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : T5
+             				to port   : T4
+             				path      : [46.574528673602515,60,46.574528673602515,50,253.90739068053836,50,253.90739068053836,52.5,253.90739068053836,55,253.90739068053836,65]
+        				}
+  				}
+    				Staff_Exchange as "Staff Exchange"
+    				{
+         				type = normal
+         				from stage = "Main Block"
+         				to stage = "Libray"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : L1
+             				to port   : R1
+             				path      : [62,181.85391489761082,52,181.85391489761082,52,133.82891489761082,76.53404490249362,133.82891489761082,76.53404490249362,85.80391489761081,66.53404490249362,85.80391489761081]
+        				}
+  				}
+        			}
+    			}
+		}
+
+		batchworkflow
+		{
+			MONTHLY_LOAN_DETAILS
+			{
+    			display name = "MONTHLY LOAN DETAILS"
+    			type = batchworkflow
+    			form = Item_Loans
+    			event = "On Import"
+    			batch size = 5
+    			status = active
+    			variables
+    			(
+        			Number totalLoans, Number returnedLoans, Number pendingLoans, Number overdueLoans, Decimal totalFines 
+    			)
+    			on execute 
+    			{
+					actions 
+					{
+						custom deluge script
+						(
+											loanCount = 1;
+										returnedCount = 0;
+										pendingCount = 0;
+										overdueCount = 0;
+										fineAmount = 0.0;
+										if(input.Loan_Status == "Returned")
+										{
+											returnedCount = 1;
+										}
+										else if(input.Loan_Status == "Pending")
+										{
+											pendingCount = 1;
+										}
+										else if(input.Loan_Status == "Overdue")
+										{
+											overdueCount = 1;
+										}
+										if(input.Fine_Amount != null)
+										{
+											fineAmount = input.Fine_Amount;
+										}
+										info "Monthly Loan Record Processed";
+										info "Loan ID: " + input.ID;
+										info "Total Loans: " + loanCount;
+										info "Returned: " + returnedCount;
+										info "Pending: " + pendingCount;
+										info "Overdue: " + overdueCount;
+										info "Fine: " + fineAmount;
+						)
+					}
+    			}
+    			on success 
+    			{
+					actions 
+					{
+						custom deluge script
+						(
+											currentMonth = zoho.currentdate.getMonth();
+										currentYear = zoho.currentdate.getYear();
+										monthlyPeriod = zoho.currentdate.toString("MMMM-yyyy");
+										for each  loan in Item_Loans
+										{
+											if(loan.Issue_Date != null)
+											{
+												if(loan.Issue_Date.getMonth() == currentMonth && loan.Issue_Date.getYear() == currentYear)
+												{
+													monthlyStatus = "Completed";
+													if(loan.Loan_Status == "Overdue")
+													{
+														monthlyStatus = "Overdue";
+													}
+													else if(loan.Loan_Status == "Pending")
+													{
+														monthlyStatus = "Pending";
+													}
+													else if(loan.Loan_Status == "Issued")
+													{
+														monthlyStatus = "In Progress";
+													}
+													else if(loan.Loan_Status == "Returned")
+													{
+														monthlyStatus = "Completed";
+													}
+													update Item_Loans[ID == loan.ID]
+													[
+														Monthly_Status=monthlyStatus
+														Monthly_Period=monthlyPeriod
+													];
+												}
+											}
+										}
+										info "Monthly loan processing completed.";
+						)
+					}
+    			}
+    			on failure 
+    			{
+					actions 
+					{
+						custom deluge script
+						(
+											info "MONTHLY LOAN DETAILS batch execution failed.";
+										info "Please check the imported loan records and workflow execution details.";
+						)
+					}
+    			}
+			}
+		}
+
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Administrator_Access"
+			{
+				name = "Administrator_Access"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Provides complete management access to all Circular Campus modules and reports.\n"
+				ModulePermissions
+				{
+					Item_Returns
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab,read_comm,write_comm 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Returns_Report1={"View","Edit","Delete"}
+							Item_Returns_Report={"View","Edit","Delete"}
+						}
+					}
+					Item_Categories
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab,read_comm,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Categories_Report={"View","Edit"}
+							Item_Categories1={"View","Edit","Delete"}
+						}
+					}
+					Item_Transfers_BlueprintJob
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+					}
+					Item_Loans
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab,read_comm,write_comm 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Loans_Report1={"View","Edit","Delete"}
+							Item_Loans_Report={"View","Edit","Delete"}
+						}
+					}
+					Reusable_Items
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab,read_comm,write_comm,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Reusable_Items_Report={"View","Edit","Delete"}
+							Reusable_Items_Report1={"View","Edit","Delete"}
+						}
+					}
+					Campus_Users
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab,read_comm,write_comm,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Campus_Users_Report={"View","Edit","Delete"}
+							Campus_Users_Report1={"View","Edit","Delete"}
+						}
+					}
+					Item_Donations
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab,read_comm,write_comm,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Donations_Report={"View","Edit","Delete"}
+							Item_Donations1={"View","Edit","Delete"}
+						}
+					}
+					Item_Transfers
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab,read_comm,write_comm,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Transfers_Report1={"View","Edit","Delete"}
+							Item_Transfers_Report={"View","Edit","Delete"}
+						}
+					}
+					Maintenance_Requests
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab,read_comm,write_comm,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Maintenance_Requests_Report={"View","Edit","Delete"}
+							Maintenance_Requests_Report1={"View","Edit","Delete"}
+						}
+					}
+					Reuse_Requests
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab,read_comm,write_comm,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Reuse_Requests_Report1={"View","Edit","Delete"}
+							Reuse_Requests_Report={"View","Edit","Delete"}
+						}
+					}
+					Dashboard
+					{
+						enabled = tab
+					}
+				}
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Faculty_Access"
+			{
+				name = "Faculty_Access"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Allows faculty to review reuse requests, approve or reject requests, and monitor maintenance activities.\n"
+				ModulePermissions
+				{
+					Item_Returns
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Returns_Report={"View"}
+						}
+					}
+					Item_Categories
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Categories1={"View"}
+						}
+					}
+					Item_Transfers_BlueprintJob
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+					}
+					Item_Loans
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Loans_Report={"View"}
+						}
+					}
+					Reusable_Items
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Reusable_Items_Report={"View"}
+						}
+					}
+					Campus_Users
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Campus_Users_Report={"View"}
+						}
+					}
+					Item_Donations
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Donations1={"View"}
+						}
+					}
+					Item_Transfers
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Transfers_Report={"View"}
+						}
+					}
+					Maintenance_Requests
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Maintenance_Requests_Report={"View","Edit"}
+						}
+					}
+					Reuse_Requests
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Reuse_Requests_Report={"View","Edit"}
+						}
+					}
+					Dashboard
+					{
+						enabled = tab
+					}
+				}
+			}
+			"Staff_Access"
+			{
+				name = "Staff_Access"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Allows staff to manage reusable items, loans, returns, transfers and maintenance records.\n"
+				ModulePermissions
+				{
+					Item_Returns
+					{
+						enabled= Create,Viewall,Import,Export,Tab,read_comm,write_comm,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Returns_Report={"View","Edit"}
+						}
+					}
+					Item_Categories
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Categories1={"View"}
+						}
+					}
+					Item_Transfers_BlueprintJob
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+					}
+					Item_Loans
+					{
+						enabled= Create,Viewall,Import,Export,Tab,read_comm,write_comm,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Loans_Report={"View","Edit"}
+						}
+					}
+					Reusable_Items
+					{
+						enabled= Create,Viewall,Import,Export,Tab,read_comm,write_comm,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Reusable_Items_Report={"View","Edit"}
+						}
+					}
+					Campus_Users
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Campus_Users_Report={"View"}
+						}
+					}
+					Item_Donations
+					{
+						enabled= Create,Viewall,Import,Export,Tab,read_comm,write_comm,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Donations1={"View","Edit"}
+						}
+					}
+					Item_Transfers
+					{
+						enabled= Create,Viewall,Import,Export,Tab,read_comm,write_comm,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Transfers_Report={"View","Edit"}
+						}
+					}
+					Maintenance_Requests
+					{
+						enabled= Create,Viewall,Import,Export,Tab,read_comm,write_comm 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Maintenance_Requests_Report={"View","Edit"}
+						}
+					}
+					Reuse_Requests
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Reuse_Requests_Report={"View"}
+						}
+					}
+					Dashboard
+					{
+						enabled = tab
+					}
+				}
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Developer Profile\n"
+			}
+			"Student_Access"
+			{
+				name = "Student_Access"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Allows students to view reusable items and submit reuse requests, donations and maintenance reports.\n"
+				ModulePermissions
+				{
+					Item_Returns
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Returns_Report={"View"}
+						}
+					}
+					Item_Categories
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Categories1={"View"}
+						}
+					}
+					Item_Transfers_BlueprintJob
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+					}
+					Item_Loans
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Loans_Report={"View"}
+						}
+					}
+					Reusable_Items
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Reusable_Items_Report={"View"}
+						}
+					}
+					Campus_Users
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Campus_Users_Report={"View"}
+						}
+					}
+					Item_Donations
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Item_Donations1={"View","Edit"}
+						}
+					}
+					Item_Transfers
+					{
+						allFieldsVisible= true 
+					}
+					Maintenance_Requests
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Maintenance_Requests_Report={"View","Edit"}
+						}
+					}
+					Reuse_Requests
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Reuse_Requests_Report={"View","Edit"}
+						}
+					}
+					Dashboard
+					{
+						enabled = tab
+					}
+				}
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+					"Administrator"
+					{
+						description = "Manages the complete application"
+						"Faculty"
+						{
+							description = "Reviews and approves requests"
+						}
+						"Staff"
+						{
+							description = "Manages items, loans and maintenance"
+							"Student"
+							{
+								description = "Requests and borrows reusable items"
+							}
+						}
+					}
+				}
+			}
+	}
+
+	customize
+	{
+		icon
+		{
+			text = "CRE"
+			background color = "theme"
+			foreground color = "#ffffff"
+		}
+	}
+
+	datasources
+	{
+		zoho_invoice_invoices
+		{
+			displayname = "Zoho Invoice Invoices"
+			module = invoice
+			system connection = zohoinvoice
+			adjustment
+			(
+				type = decimal
+				displayname = "Adjustment"
+				source field name = "adjustment"
+			)
+			adjustment_description
+			(
+				type = text
+				displayname = "Adjustment Description"
+				source field name = "adjustment_description"
+			)
+			allow_partial_payments
+			(
+				type = text
+				displayname = "Allow Partial Payments"
+				source field name = "allow_partial_payments"
+			)
+			avatax_exemption_number
+			(
+				type = text
+				displayname = "Avatax Exemption Number"
+				source field name = "avatax_exempt_no"
+			)
+			avatax_tax_code
+			(
+				type = text
+				displayname = "Avatax Tax Code"
+				source field name = "avatax_tax_code"
+			)
+			avatax_use_code
+			(
+				type = text
+				displayname = "Avatax Use Code"
+				source field name = "avatax_use_code"
+			)
+			balance
+			(
+				type = decimal
+				displayname = "Balance"
+				source field name = "balance"
+				report only = true
+			)
+			can_send_in_email
+			(
+				type = checkbox
+				displayname = "Can Send in Email"
+				source field name = "can_send_in_mail"
+				report only = true
+			)
+			cfdi_usage
+			(
+				type = text
+				displayname = "CFDI Usage"
+				source field name = "cfdi_usage"
+			)
+			client_viewed_time
+			(
+				type = text
+				displayname = "Client Viewed Time"
+				source field name = "client_viewed_time"
+				report only = true
+			)
+			created_time
+			(
+				type = datetime
+				displayname = "Created Time"
+				source field name = "created_time"
+				report only = true
+				display format = "yyyy-MM-dd'T'HH:mm:ssZ"
+			)
+			credits_applied
+			(
+				type = decimal
+				displayname = "Credits Applied"
+				source field name = "credits_applied"
+				report only = true
+			)
+			custom_body
+			(
+				type = textarea
+				displayname = "Custom Body"
+				source field name = "custom_body"
+			)
+			custom_subject
+			(
+				type = text
+				displayname = "Custom Subject"
+				source field name = "custom_subject"
+			)
+			customer_notes
+			(
+				type = textarea
+				displayname = "Customer Notes"
+				source field name = "notes"
+			)
+			discount
+			(
+				type = percentage
+				displayname = "Discount"
+				source field name = "discount"
+			)
+			discount_type
+			(
+				type = picklist
+				displayname = "Discount Type"
+				source field name = "discount_type"
+				values = {"entity_level":"Entity level","item_level":"Item level"}
+			)
+			due_date
+			(
+				type = date
+				displayname = "Due Date"
+				source field name = "due_date"
+				display format = "yyyy-MM-dd"
+			)
+			exchange_rate
+			(
+				type = decimal
+				displayname = "Exchange Rate"
+				source field name = "exchange_rate"
+			)
+			gst_number
+			(
+				type = text
+				displayname = "GST Number"
+				source field name = "gst_no"
+			)
+			gst_treatment
+			(
+				type = picklist
+				displayname = "GST Treatment"
+				source field name = "gst_treatment"
+				values = {"business_gst":"Registered Business - Regular","business_none":"Unregistered Business","consumer":"Consumer","out_of_scope":"Out of Scope","overseas":"Overseas"}
+			)
+			invoice_date
+			(
+				type = date
+				displayname = "Invoice Date"
+				source field name = "date"
+				display format = "yyyy-MM-dd"
+			)
+			invoice_id
+			(
+				type = text
+				displayname = "Invoice Id"
+				source field name = "invoice_id"
+				primary = true
+				report only = true
+			)
+			invoice_number
+			(
+				type = text
+				displayname = "Invoice Number"
+				source field name = "invoice_number"
+				search operators = {"like"}
+			)
+			invoice_url
+			(
+				type = url
+				displayname = "Invoice URL"
+				source field name = "invoice_url"
+				report only = true
+			)
+			is_ach_payment_initiated
+			(
+				type = checkbox
+				displayname = "Is ACH Payment Initiated"
+				source field name = "ach_payment_initiated"
+				report only = true
+			)
+			is_discount_before_tax
+			(
+				type = checkbox
+				displayname = "Is Discount Before Tax"
+				source field name = "is_discount_before_tax"
+			)
+			is_emailed
+			(
+				type = checkbox
+				displayname = "Is Emailed"
+				source field name = "is_emailed"
+				report only = true
+			)
+			is_pre_gst
+			(
+				type = checkbox
+				displayname = "Is Pre GST"
+				source field name = "is_pre_gst"
+				report only = true
+			)
+			is_tax_inclusive
+			(
+				type = checkbox
+				displayname = "Is Tax Inclusive"
+				source field name = "is_inclusive_tax"
+			)
+			is_viewed_by_client
+			(
+				type = checkbox
+				displayname = "Is Viewed by Client"
+				source field name = "is_viewed_by_client"
+				report only = true
+			)
+			last_modified_time
+			(
+				type = datetime
+				displayname = "Last Modified Time"
+				source field name = "last_modified_time"
+				report only = true
+				display format = "yyyy-MM-dd'T'HH:mm:ssZ"
+			)
+			last_payment_date
+			(
+				type = date
+				displayname = "Last Payment Date"
+				source field name = "last_payment_date"
+				report only = true
+				display format = "yyyy-MM-dd"
+			)
+			last_reminder_sent_date
+			(
+				type = date
+				displayname = "Last Reminder Sent Date"
+				source field name = "last_reminder_sent_date"
+				report only = true
+				display format = "yyyy-MM-dd"
+			)
+			order_number
+			(
+				type = text
+				displayname = "Order Number"
+				source field name = "reference_number"
+			)
+			payment_expected_date
+			(
+				type = date
+				displayname = "Payment Expected Date"
+				source field name = "payment_expected_date"
+				report only = true
+				display format = "yyyy-MM-dd"
+			)
+			payment_made
+			(
+				type = decimal
+				displayname = "Payment Made"
+				source field name = "payment_made"
+				report only = true
+			)
+			payment_reminder_enabled
+			(
+				type = checkbox
+				displayname = "Payment Reminder Enabled"
+				source field name = "payment_reminder_enabled"
+				report only = true
+			)
+			payment_terms
+			(
+				type = picklist
+				displayname = "Payment Terms"
+				source field name = "payment_terms"
+				values = {"-2":"Due end of the month","-3":"Due end of next month","0":"Due on receipt","15":"Net 15","30":"Net 30","45":"Net 45","60":"Net 60"}
+			)
+			price_precision
+			(
+				type = number
+				displayname = "Price Precision"
+				source field name = "price_precision"
+				report only = true
+			)
+			reason
+			(
+				type = textarea
+				displayname = "Reason"
+				source field name = "reason"
+			)
+			reminders_sent
+			(
+				type = number
+				displayname = "Reminders Sent"
+				source field name = "reminders_sent"
+				report only = true
+			)
+			shipping_charge
+			(
+				type = text
+				displayname = "Shipping Charge"
+				source field name = "shipping_charge"
+			)
+			status
+			(
+				type = picklist
+				displayname = "Status"
+				source field name = "status"
+				report only = true
+				values = {"draft":"Draft","overdue":"Overdue","paid":"Paid","partially_paid":"Partially paid","sent":"Sent","unpaid":"Unpaid","viewed":"Viewed","void":"Void"}
+			)
+			sub_total
+			(
+				type = decimal
+				displayname = "Sub Total"
+				source field name = "sub_total"
+				report only = true
+			)
+			subject_field
+			(
+				type = text
+				displayname = "Subject"
+				source field name = "subject_content"
+				report only = true
+			)
+			tax_amount_withheld
+			(
+				type = decimal
+				displayname = "Tax Amount Withheld"
+				source field name = "tax_amount_withheld"
+				report only = true
+			)
+			tax_total
+			(
+				type = decimal
+				displayname = "Tax Total"
+				source field name = "tax_total"
+				report only = true
+			)
+			tax_treatment
+			(
+				type = picklist
+				displayname = "Tax Treatment"
+				source field name = "tax_treatment"
+				values = {"dz_vat_not_registered":"DZ VAT Not Registered","dz_vat_registered":"DZ VAT Registered","gcc_vat_not_registered":"GCC VAT Not Registered","gcc_vat_registered":"GCC VAT Registered","non_gcc":"Non GCC","vat_not_registered":"VAT Not Registered","vat_registered":"VAT Registered"}
+			)
+			terms_and_conditions
+			(
+				type = textarea
+				displayname = "Terms and Conditions"
+				source field name = "terms"
+			)
+			total_amount
+			(
+				type = decimal
+				displayname = "Total Amount"
+				source field name = "total"
+				report only = true
+			)
+			vat_registration_number
+			(
+				type = text
+				displayname = "VAT Registration Number"
+				source field name = "vat_reg_no"
+				report only = true
+			)
+			vat_treatment
+			(
+				type = text
+				displayname = "VAT Treatment"
+				source field name = "vat_treatment"
+			)
+			write_off_amount
+			(
+				type = decimal
+				displayname = "Write Off Amount"
+				source field name = "write_off_amount"
+				report only = true
+			)
+		}
+	}
+	web
+	{
+		forms
+		{
+			form Campus_Users
+			{
+				label placement = left
+			}
+			form Item_Categories
+			{
+				label placement = left
+			}
+			form Item_Donations
+			{
+				label placement = left
+			}
+			form Item_Loans
+			{
+				label placement = left
+			}
+			form Item_Returns
+			{
+				label placement = left
+			}
+			form Item_Transfers
+			{
+				label placement = left
+			}
+			form Maintenance_Requests
+			{
+				label placement = left
+			}
+			form Reusable_Items
+			{
+				label placement = left
+			}
+			form Reuse_Requests
+			{
+				label placement = left
+			}
+		}
+		reports
+		{
+			report Campus_Users_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								User_ID
+								Full_Name
+								College_Email
+								Phone_Number1 as "Phone_Number"
+								Role
+								Department
+								Year_of_Study
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								User_ID
+								Full_Name
+								College_Email
+								Phone_Number1 as "Phone_Number"
+								Role
+								Department
+								Year_of_Study
+								Register_Number
+								Campus_Location
+								User_Status
+								Joined_Date
+								Total_Borrowed
+								Sustainability_Points
+								Profile_Photo1 as "Profile_Photo"
+								User_Name as "User Name"
+								Signature
+								Gender
+								How_Do_You_Know_About_This as "How Do You Know About This ?"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Item_Categories_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Category_ID
+								Category_Name
+								Category_Description
+								Category_Type
+								Default_Reuse_Life_Days
+								Is_Active
+								Sustainability_Factor
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Category_ID
+								Category_Name
+								Category_Description
+								Category_Type
+								Default_Reuse_Life_Days
+								Is_Active
+								Sustainability_Factor
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Reusable_Items_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Item_ID
+								Item_Name
+								Category_Name
+								Item_Description
+								Item_Type
+								Condition_field as "Condition"
+								Total_Quantity
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Item_ID
+								Item_Name
+								Category_Name
+								Item_Description
+								Item_Type
+								Condition_field as "Condition"
+								Total_Quantity
+								Available_Quantity
+								Item_Location
+								Storage_Details
+								Ownership_Type
+								Donor_User
+								Date_Acquired
+								Estimated_Value
+								Item_Image
+								Item_Document
+								QR_Code as "Item_QR_Code"
+								Reuse_Status
+								Condition_Notes
+								Keyword as "AI_Keywords"
+								Last_Inspection_Date
+								Added_By
+								Category_Prediction as "﻿AI_Category_Prediction"
+								Borrower_Active_Loans
+								Total_Duration_Days as "Total Duration Days"
+								Invoices
+								Object_Detection as "Object Detection Verification"
+								About_Item as "About Item"
+								OCR as "ITEM DETAILS IN REPORT"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Reuse_Requests_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Request_ID
+								Quantity_Requested
+								Request_Date
+								Required_From
+								Expected_Return_Date
+								Approver
+								Full_Name
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Request_ID
+								Quantity_Requested
+								Request_Date
+								Required_From
+								Expected_Return_Date
+								Purpose
+								Priority
+								Request_Status
+								Approval_Notes
+								Created_At
+								Approver
+								Reusable_Items1 as "Reusable_Items"
+								Full_Name
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Item_Loans_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Loan_ID
+								Request
+								Borrower
+								Item
+								Quantity_Issued
+								Issue_Date
+								Due_Date
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Loan_ID
+								Request
+								Borrower
+								Item
+								Quantity_Issued
+								Issue_Date
+								Due_Date
+								Issued_By
+								Loan_Status
+								Actual_Return_Date
+								Extension_Count
+								Fine_Amount
+								Loan_Notes
+								Monthly_Status
+								Monthly_Period
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Item_Returns_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Loan
+								Returned_By
+								Return_Date
+								Quantity_Returned
+								Return_Condition
+								Inspection_Notes
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Loan
+								Returned_By
+								Return_Date
+								Quantity_Returned
+								Return_Condition
+								Inspection_Notes
+								Inspection_Photo
+								Damage_Charge
+								Inspected_By
+								Return_Status
+								Stock_Updated
+								Return_ID1 as "Return_ID"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Maintenance_Requests_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Maintenance_ID
+								Reusable_Items
+								Related_Loan
+								Issue_Type
+								Problem_Description
+								Problem_Photo
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Maintenance_ID
+								Reusable_Items
+								Related_Loan
+								Issue_Type
+								Problem_Description
+								Problem_Photo
+								Priority
+								Assigned_To
+								Report_Date
+								Target_Completion_Date
+								Maintenance_Status
+								Repair_Cost
+								Resolution_Notes
+								Sentiment as "Maintenance_Recommendation"
+								Maintanance_Steps as "Maintanance Steps"
+								Reported_By1 as "Reported_By"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Item_Transfers_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Transfer_ID
+								Item
+								Quantity_Transferred
+								Source_Location
+								Destination_Location
+								Requested_By
+								Approved_By
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Transfer_ID
+								Item
+								Quantity_Transferred
+								Source_Location
+								Destination_Location
+								Requested_By
+								Approved_By
+								Transfer_Date
+								Transfer_Status
+								Received_By
+								Received_Date
+								Transfer_Notes
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Item_Donations_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Donation_ID
+								Donor_User
+								Donor_Name
+								Donor_Email
+								Item_Name
+								Category
+								Description
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Donation_ID
+								Donor_User
+								Donor_Name
+								Donor_Email
+								Item_Name
+								Category
+								Description
+								Quantity
+								Condition_field as "Condition"
+								Donation_Photo
+								Estimated_Value
+								Donation_Date
+								Collection_Location
+								Review_Status
+								Reviewed_By
+								Review_Notes
+								Review_Status_Prediction as "Review_Status Prediction"
+								Convenice_Charge as "Convenice Charge"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Campus_Users_Report1
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								User_ID
+								Full_Name
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								User_ID
+								Full_Name
+								College_Email
+								Phone_Number1 as "Phone_Number"
+								Role
+								Department
+								Year_of_Study
+								Register_Number
+								Campus_Location
+								User_Status
+								Profile_Photo1 as "Profile_Photo"
+								Joined_Date
+								Total_Borrowed
+								Sustainability_Points
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Item_Categories1
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 2
+						datablock1
+						(
+							layout type = 4
+							fields
+							(
+								Category_ID
+								Category_Description
+								Category_Name
+								Category_Type
+								Default_Reuse_Life_Days
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Category_ID
+								Category_Name
+								Category_Description
+								Category_Type
+								Default_Reuse_Life_Days
+								Is_Active
+								Sustainability_Factor
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Item_Donations1
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Donation_ID
+								Donor_User
+								Donor_Name
+								Donor_Email
+								Item_Name
+								Category
+								Description
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Donation_ID
+								Donor_User
+								Donor_Name
+								Donor_Email
+								Item_Name
+								Category
+								Description
+								Quantity
+								Condition_field as "Condition"
+								Donation_Photo
+								Estimated_Value
+								Donation_Date
+								Collection_Location
+								Review_Status
+								Reviewed_By
+								Review_Notes
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Item_Loans_Report1
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Loan_ID
+								Request
+								Borrower
+								Item
+								Quantity_Issued
+								Issue_Date
+								Due_Date
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Loan_ID
+								Request
+								Borrower
+								Item
+								Quantity_Issued
+								Issue_Date
+								Due_Date
+								Issued_By
+								Loan_Status
+								Actual_Return_Date
+								Extension_Count
+								Fine_Amount
+								Loan_Notes
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Item_Returns_Report1
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Loan
+								Returned_By
+								Return_Date
+								Quantity_Returned
+								Return_Condition
+								Inspection_Notes
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Loan
+								Returned_By
+								Return_Date
+								Quantity_Returned
+								Return_Condition
+								Inspection_Notes
+								Inspection_Photo
+								Damage_Charge
+								Inspected_By
+								Return_Status
+								Stock_Updated
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Item_Transfers_Report1
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Transfer_ID
+								Item
+								Quantity_Transferred
+								Source_Location
+								Destination_Location
+								Requested_By
+								Approved_By
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Transfer_ID
+								Item
+								Quantity_Transferred
+								Source_Location
+								Destination_Location
+								Requested_By
+								Approved_By
+								Transfer_Date
+								Transfer_Status
+								Received_By
+								Received_Date
+								Transfer_Notes
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Maintenance_Requests_Report1
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Maintenance_ID
+								Reusable_Items
+								Related_Loan
+								Issue_Type
+								Problem_Description
+								Problem_Photo
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Maintenance_ID
+								Reusable_Items
+								Related_Loan
+								Issue_Type
+								Problem_Description
+								Problem_Photo
+								Priority
+								Assigned_To
+								Report_Date
+								Target_Completion_Date
+								Maintenance_Status
+								Repair_Cost
+								Resolution_Notes
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Reusable_Items_Report1
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Item_ID
+								Item_Name
+								Category_Name
+								Item_Description
+								Item_Type
+								Condition_field as "Condition"
+								Total_Quantity
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Item_ID
+								Item_Name
+								Category_Name
+								Item_Description
+								Item_Type
+								Condition_field as "Condition"
+								Total_Quantity
+								Available_Quantity
+								Item_Location
+								Storage_Details
+								Ownership_Type
+								Donor_User
+								Date_Acquired
+								Estimated_Value
+								Item_Image
+								Item_Document
+								QR_Code as "Item_QR_Code"
+								Reuse_Status
+								Condition_Notes
+								Keyword as "AI_Keywords"
+								Last_Inspection_Date
+								Added_By
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Reuse_Requests_Report1
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Request_ID
+								Quantity_Requested
+								Request_Date
+								Required_From
+								Expected_Return_Date
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Request_ID
+								Quantity_Requested
+								Request_Date
+								Required_From
+								Expected_Return_Date
+								Purpose
+								Priority
+								Request_Status
+								Approval_Notes
+								Created_At
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+		}
+		menu
+		{
+			space Space
+			{
+				displayname = "Space"
+				icon = "objects-spaceship"
+
+				section Campus_Users
+				{
+					displayname = "Campus_Users"
+					icon = "tech-desktop"
+					form  Campus_Users
+					{
+						icon = "tech-desktop"
+					}
+					report Campus_Users_Report
+					{
+						icon = "tech-desktop"
+					}
+					report Campus_Users_Report1
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section ZC_App_Preferences
+				{
+					displayname = "App Preferences"
+					icon = "design-app"
+					systemcomponent
+					{
+						type = localization
+						displayname = "Language Selection"
+						icon = "education-language"
+					}
+					systemcomponent
+					{
+						type = connection
+						displayname = "Integrations"
+						icon = "tech-2-connection"
+					}
+				}
+				section ZC_Approvals
+				{
+					displayname = "Approvals"
+					icon = "ui-2-hourglass"
+					systemcomponent
+					{
+						type = approval
+						approval status = pending
+						displayname = "Pending Tasks"
+						icon = "ui-2-hourglass"
+					}
+					systemcomponent
+					{
+						type = approval
+						approval status = completed
+						displayname = "Completed Tasks"
+						icon = "design-todo"
+					}
+				}
+				section SharedAnalytics_Section
+				{
+					type = shared_user_report_section
+					displayname = "Reports"
+					icon = "business-chart-bar-33"
+				}
+				section Item_Categories
+				{
+					displayname = "Item_Categories"
+					icon = "tech-desktop"
+					form  Item_Categories
+					{
+						icon = "tech-desktop"
+					}
+					report Item_Categories_Report
+					{
+						icon = "tech-desktop"
+					}
+					report Item_Categories1
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Reusable_Items
+				{
+					displayname = "Reusable_Items"
+					icon = "tech-desktop"
+					form  Reusable_Items
+					{
+						icon = "tech-desktop"
+					}
+					report Reusable_Items_Report
+					{
+						icon = "tech-desktop"
+					}
+					report Reusable_Items_Report1
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Reuse_Requests
+				{
+					displayname = "Reuse_Requests"
+					icon = "tech-desktop"
+					form  Reuse_Requests
+					{
+						icon = "tech-desktop"
+					}
+					report Reuse_Requests_Report
+					{
+						icon = "tech-desktop"
+					}
+					report Reuse_Requests_Report1
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Item_Loans
+				{
+					displayname = "Item_Loans"
+					icon = "tech-desktop"
+					form  Item_Loans
+					{
+						icon = "tech-desktop"
+					}
+					report Item_Loans_Report
+					{
+						icon = "tech-desktop"
+					}
+					report Item_Loans_Report1
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Item_Returns
+				{
+					displayname = "Item_Returns"
+					icon = "tech-desktop"
+					form  Item_Returns
+					{
+						icon = "tech-desktop"
+					}
+					report Item_Returns_Report
+					{
+						icon = "tech-desktop"
+					}
+					report Item_Returns_Report1
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Maintenance_Requests
+				{
+					displayname = "Maintenance_Requests"
+					icon = "tech-desktop"
+					form  Maintenance_Requests
+					{
+						icon = "tech-desktop"
+					}
+					report Maintenance_Requests_Report
+					{
+						icon = "tech-desktop"
+					}
+					report Maintenance_Requests_Report1
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Item_Transfers
+				{
+					displayname = "Item_Transfers"
+					icon = "tech-desktop"
+					form  Item_Transfers
+					{
+						icon = "tech-desktop"
+					}
+					report Item_Transfers_Report
+					{
+						icon = "tech-desktop"
+					}
+					report Item_Transfers_Report1
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Item_Donations
+				{
+					displayname = "Item_Donations"
+					icon = "tech-desktop"
+					form  Item_Donations
+					{
+						icon = "tech-desktop"
+					}
+					report Item_Donations_Report
+					{
+						icon = "tech-desktop"
+					}
+					report Item_Donations1
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section AI_Agents
+				{
+					displayname = "AI Agents"
+					icon = "ui-2-chat-content"
+					chat Circular_Campus_Reuse_Assistant
+					{
+						icon = "business-chair"
+					}
+				}
+				section Dashboard
+				{
+					displayname = "Dashboard"
+					icon = "ui-1-dashboard-half"
+					page Dashboard
+					{
+						icon = "ui-1-dashboard-half"
+					}
+				}
+			}
+			preference
+			{
+				icon
+				{
+					style = outline
+				}
+			}
+		}
+		customize
+		{
+			font = "lato"
+			color options
+			{
+				color = "11"
+			}
+			logo
+			{
+				preference = "app_icon"
+				placement = "left"
+			}
+		}
+	}
+	phone
+	{
+		forms
+		{
+			form Campus_Users
+			{
+				label placement = auto
+			}
+			form Item_Categories
+			{
+				label placement = auto
+			}
+			form Item_Donations
+			{
+				label placement = auto
+			}
+			form Item_Loans
+			{
+				label placement = auto
+			}
+			form Item_Returns
+			{
+				label placement = auto
+			}
+			form Item_Transfers
+			{
+				label placement = auto
+			}
+			form Maintenance_Requests
+			{
+				label placement = auto
+			}
+			form Reusable_Items
+			{
+				label placement = auto
+			}
+			form Reuse_Requests
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = twocolumn
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = chryslerpurple
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	tablet
+	{
+		forms
+		{
+			form Campus_Users
+			{
+				label placement = auto
+			}
+			form Item_Categories
+			{
+				label placement = auto
+			}
+			form Item_Donations
+			{
+				label placement = auto
+			}
+			form Item_Loans
+			{
+				label placement = auto
+			}
+			form Item_Returns
+			{
+				label placement = auto
+			}
+			form Item_Transfers
+			{
+				label placement = auto
+			}
+			form Maintenance_Requests
+			{
+				label placement = auto
+			}
+			form Reusable_Items
+			{
+				label placement = auto
+			}
+			form Reuse_Requests
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = red
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	translation
+{
+{"Language_Settings":{"LANGAGUE_WITH_LOGIN":"browser"}}
+}
+}
